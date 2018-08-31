@@ -1,0 +1,15 @@
+
+{
+  "presets": [
+    "babel-preset-env",
+    "vue-app"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "syntax-dynamic-import",
+    "syntax-object-rest-spread",
+    "transform-object-rest-spread"
+  ]
+}
