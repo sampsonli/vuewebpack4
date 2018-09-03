@@ -5,16 +5,20 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: {
-        main: [path.resolve(__dirname, 'src', 'main')],
+        entry: [
+            "webpack-hot-middleware/client?reload=true&path=/__webpack_hmr", // webpack热更新插件，就这么写
+            "./src/main.js" // 项目入口
+        ],
     },
     output: {
         path: path.resolve(__dirname, "dist"), // 将文件打包到此目录下
         publicPath: "", // 在生成的html中，文件的引入路径会相对于此地址，生成的css中，以及各类图片的URL都会相对于此地址
-        filename: "[name].[contenthash:6].js",
-        chunkFilename: "[name].[contenthash:6].chunk.js"
+        filename: "[name].js",
+        chunkFilename: "[name].chunk.js"
     },
+    devtool: "inline-source-map", // 报错的时候在控制台输出哪一行报错
     context: __dirname,
     module: {
         rules: [
@@ -97,12 +101,14 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.HotModuleReplacementPlugin(), // 热更新插件
         new VueLoaderPlugin(),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
-            'process.env.EWT_ENV': JSON.stringify(process.env.EWT_ENV || 'online')
+            'process.env.NODE_ENV': JSON.stringify('development'),
         }),
         new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
             filename: "[name].[contenthash:6].css",
             chunkFilename: "[name].[contenthash:6].chunk.css"
         }),

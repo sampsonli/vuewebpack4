@@ -1,10 +1,9 @@
 const Cartoon = () => import('./index.vue' /* webpackChunkName: "cartoon" */)
-const CartoonList = () => import('./pages/list/index.vue' /* webpackChunkName: "cartoon/list" */)
-const CartoonDetail = () => import('./pages/detail/index.vue' /* webpackChunkName: "cartoon/detail" */)
-const CartoonComment = () => import('./pages/comment/index.vue' /* webpackChunkName: "cartoon/detail/comment" */)
+const CartoonList = () => import('./pages/list/index.vue' /* webpackChunkName: "cartoon_list" */)
+const CartoonDetail = () => import('./pages/detail/index.vue' /* webpackChunkName: "cartoon_detail" */)
+const CartoonComment = () => import('./pages/comment/index.vue' /* webpackChunkName: "cartoon_detail_comment" */)
 export default {
     component: Cartoon,
-    path: '/cartoon',
     children: [
         {
             path: 'list',

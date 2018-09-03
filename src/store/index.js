@@ -25,10 +25,9 @@ const modules = {};
         }
     })
 })(require.context('./', true, /\.js$/));
-
-export default () => new Vuex.Store({
+export default  new Vuex.Store({
     state,
     actions,
     mutations,
     modules
-})
+});
