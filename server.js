@@ -9,6 +9,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware'); // HMR热更新�
 const webpackConfig = require('./webpack.config.dev.js'); // webpack开发环境的配置文件
 
 const forward = require('forward-request');
+const http = require('http');
 
 const app = express(); // 实例化express服务
 const DIST_DIR = webpackConfig.output.path; // webpack配置中设置的文件输出路径，所有文件存放在内存中
@@ -94,6 +95,31 @@ if (env === 'production') {
             res.end();
         });
     });
+
+
+    app.use((req, resp, next) => {
+        if(req.originalUrl.indexOf('samples') > -1) {
+            req.headers.host = 'devimages.apple.com';
+            const options = {
+                host: 'devimages.apple.com',
+                port: 80,
+                path: req.originalUrl,
+                method: req.method,
+                headers: req.headers
+            };
+            delete req.headers['accept-encoding'];
+            const request = http.request(options, (response) => {
+                resp.writeHead(response.statusCode,response.headers);
+                response.pipe(resp);
+            }).on('error', function (e) {
+                console.log("error: " + e.message);
+                resp.sendStatus(500)
+            });
+            request.end()
+        } else {
+            next()
+        }
+    })
 }
 
 
