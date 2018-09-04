@@ -12,5 +12,8 @@ module.exports = {
     ],
     plugins: [
         'vue'
-    ]
+    ],
+    rules: {
+        camelcase: 1
+    }
 };

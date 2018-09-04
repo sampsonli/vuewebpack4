@@ -1,5 +1,5 @@
 <template>
-    <router-view></router-view>
+  <router-view/>
 </template>
 <script>
 // import './store'
@@ -22,6 +22,7 @@ export default {
   components: {},
   mounted () {
 
+    // alert('hello')
   }
 
 }
