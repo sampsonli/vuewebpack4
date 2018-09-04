@@ -43,18 +43,6 @@ module.exports = {
                     "postcss-loader",
                     "less-loader"
                 ],
-                include: path.resolve(__dirname, "src")
-            },
-            {
-                // .less 解析 (用于解析antd的LESS文件)
-                test: /\.(less|css)$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    "css-loader",
-                    "postcss-loader",
-                    "less-loader"
-                ],
-                include: path.resolve(__dirname, "node_modules")
             },
             {
                 // 文件解析
