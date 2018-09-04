@@ -17,17 +17,17 @@ const actions = {
 
 }
 
-const modules = {};
+const modules = {}
 ;((r) => {
-    r.keys().forEach((key) => {
-        if (!~key.indexOf('index.js')) {
-            modules[key.split('/')[1].split('.')[0]] = r(key)
-        }
-    })
-})(require.context('./', true, /\.js$/));
-export default  new Vuex.Store({
-    state,
-    actions,
-    mutations,
-    modules
-});
+  r.keys().forEach((key) => {
+    if (!~key.indexOf('index.js')) {
+      modules[key.split('/')[1].split('.')[0]] = r(key)
+    }
+  })
+})(require.context('./', true, /\.js$/))
+export default new Vuex.Store({
+  state,
+  actions,
+  mutations,
+  modules
+})

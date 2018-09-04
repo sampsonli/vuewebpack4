@@ -2,23 +2,22 @@
     <router-view></router-view>
 </template>
 <script>
-    export default {
-        data() {
-            return {
-                // platform
-            }
-        },
-        computed: {
-            test () {
-            }
-        },
-        methods: {
-        },
-        components: {},
-        mounted() {
-
-        }
-
+export default {
+  data () {
+    return {
+      // platform
     }
-</script>
+  },
+  computed: {
+    test () {
+    }
+  },
+  methods: {
+  },
+  components: {},
+  mounted () {
 
+  }
+
+}
+</script>
