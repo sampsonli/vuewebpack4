@@ -33,23 +33,6 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
-                options: {
-                    loaders: {
-                        css: [
-                            'style-loader',
-                            'css-loader',
-                            "postcss-loader",
-                        ],
-                        less: [
-                            'style-loader',
-                            'css-loader',
-                            "postcss-loader",
-                            'less-loader'
-                        ]
-                    }
-                }
-
-
             },
             {
                 // .less 解析
