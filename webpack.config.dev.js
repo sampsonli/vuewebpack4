@@ -1,9 +1,7 @@
 const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 module.exports = {
   mode: 'development',
   entry: {
@@ -38,7 +36,7 @@ module.exports = {
         // .less 解析
         test: /\.(less|css)$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader',
           'postcss-loader',
           'less-loader'
@@ -77,13 +75,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
     }),
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: '[name].[contenthash:6].css',
-      chunkFilename: '[name].[contenthash:6].chunk.css'
-    }),
-
     new HtmlWebpackPlugin({
       // 根据模板插入css/js等生成最终HTML
       filename: 'index.html', // 生成的html存放路径，相对于 output.path
@@ -95,9 +86,6 @@ module.exports = {
     // new BundleAnalyzerPlugin() // 打包分析插件，打包后会自动弹出tree图：127.0.0.1:8888
   ],
   optimization: {
-    minimizer: [
-      new OptimizeCSSAssetsPlugin({})
-    ],
     runtimeChunk: true,
     splitChunks: {
       chunks: 'all', // Taken from https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
