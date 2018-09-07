@@ -8,6 +8,7 @@
     "transform-runtime",
     "transform-decorators-legacy",
     "transform-class-properties",
+    "dynamic-import-node",
     "syntax-dynamic-import",
     "syntax-object-rest-spread",
     "transform-object-rest-spread"
