@@ -24,6 +24,7 @@ export default {
     window.HELP_IMPROVE_VIDEOJS = false
   },
   mounted () {
+    console.log(this.$abc)
     const video = this.$refs.video
     var myPlayer = videojs(video, {
       bigPlayButton: false,

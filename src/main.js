@@ -8,14 +8,20 @@ import store from './store'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 import vueTap from 'v-tap'
+
 Vue.use(vueTap)
 sync(store, router)
 
-const app = new Vue(Object.assign({
+Vue.mixin({
+  methods: {
+    dispatch: store.dispatch,
+    commit: store.commit
+  }
+})
+const app = new Vue({
+  el: '#app',
   router,
-  store
-}, App))
-
-app.$mount('#app')
-
+  store,
+  render: h => h(App)
+})
 export { app, router, store }
