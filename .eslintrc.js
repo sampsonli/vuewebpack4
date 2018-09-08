@@ -14,6 +14,7 @@ module.exports = {
         'vue'
     ],
     rules: {
-        camelcase: 1
+        camelcase: 1,
+        indent: [2, 4]
     }
 };

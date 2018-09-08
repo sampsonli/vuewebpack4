@@ -5,18 +5,14 @@
 import { mapActions, mapMutations } from '~/common/util'
 import store from '~/store'
 import ctx from '../route'
-export const ns = ctx.path.replace('/', '');
-const state = {
 
+export const ns = ctx.path.replace('/', '')
+const state = {
     test: 'hello'
 }
-const actionsInfo = mapActions({
+const actionsInfo = mapActions({}, ns)
 
-}, ns)
-
-const mutationsInfo = mapMutations({
-
-}, ns)
+const mutationsInfo = mapMutations({}, ns)
 
 const actions = actionsInfo.actions
 const mutations = mutationsInfo.mutations
