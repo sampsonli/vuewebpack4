@@ -10,7 +10,7 @@ export default {
         },
         {
             path: '*',
-            redirect: {name: 'video/demo'}
+            redirect: { name: 'video/demo' }
         }
     ]
 }

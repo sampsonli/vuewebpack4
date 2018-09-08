@@ -19,15 +19,15 @@ const actions = {
 
 const modules = {}
 ;((r) => {
-  r.keys().forEach((key) => {
-    if (!~key.indexOf('index.js')) {
-      modules[key.split('/')[1].split('.')[0]] = r(key)
-    }
-  })
+    r.keys().forEach((key) => {
+        if (!~key.indexOf('index.js')) {
+            modules[key.split('/')[1].split('.')[0]] = r(key)
+        }
+    })
 })(require.context('./', true, /\.js$/))
 export default new Vuex.Store({
-  state,
-  actions,
-  mutations,
-  modules
+    state,
+    actions,
+    mutations,
+    modules
 })

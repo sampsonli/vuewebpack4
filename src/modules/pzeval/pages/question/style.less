@@ -1,0 +1,101 @@
+.container {
+    padding: 0 .12rem;
+    .navbar {
+        margin-top: .19rem;
+        overflow: hidden;
+        .pre {
+            float: left;
+            font-size: 14px;
+            color: #979797;
+            &::before {
+                content: '';
+                display: inline-block;
+                width: .2rem;
+                height: .2rem;
+                background: url(../../assets/back.png) no-repeat center;
+                background-size: contain;
+                vertical-align: -24%;
+            }
+        }
+        .navstat {
+            float: right;
+            i {
+                font-size: .18rem;
+                color: #4095EF;
+            }
+        }
+    }
+    .statbar {
+        margin-top: .08rem;
+        background: #D9EAFC;
+
+        border-radius: .08rem;
+        i {
+            display: block;
+            background: #4095EF;
+            border-radius: .08rem;
+            height: .08rem;
+
+        }
+    }
+    .title {
+        font-size: .18rem;
+        color: #434F59;
+        margin: .31rem 0;
+    }
+    .qsct {
+        .qsitem {
+            padding: .18rem 0;
+            font-size: .16rem;
+            color: #979797;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .desc {
+                width: 2.6rem;
+                margin-left: .1rem;
+            }
+            .option {
+                margin-right: .2rem;
+                width: .2rem;
+                height: .2rem;
+                border: .02rem solid #4095EF;
+                border-radius: .1rem;
+                text-align: center;
+                line-height: .18rem;
+                &::before {
+                    content: '';
+
+                    height: .08rem;
+                    width: .08rem;
+                    border-radius: .04rem;
+                    vertical-align: 14%;
+                    display: inline-block;
+                    background-color: #4095EF;
+                }
+
+            }
+            &:nth-child(2n-1) {
+                background: #F7F8FC;
+            }
+
+        }
+    }
+
+    .footer {
+        .btn {
+            background-image: linear-gradient(-90deg, #0387FF 0%, #02AAFF 100%);
+            border-radius: .04rem;
+            width: 3.51rem;
+            height: .44rem;
+            margin: .12rem auto;
+            text-align: center;
+            line-height: .44rem;
+            color: white;
+            font-size: .18rem;
+
+        }
+    }
+}
+

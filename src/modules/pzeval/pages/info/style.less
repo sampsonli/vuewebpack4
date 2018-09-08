@@ -1,0 +1,62 @@
+.container {
+    .items {
+        margin-top: .2rem;
+        padding: 0 .12rem;
+        border-top: .01rem solid #E3E3E3;
+        border-bottom: .01rem solid #E3E3E3;
+        .item {
+            font-size: .16rem;
+            color: #333333;
+            line-height: .46rem;
+            &:not(:last-child) {
+                border-bottom: .01rem solid #E3E3E3;
+            }
+
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: .1rem 0;
+            .title {
+                line-height: .26rem;
+            }
+            .radios {
+                .sex {
+                    margin-left: .3rem;
+                    input {
+                        margin-right: .1rem;
+                    }
+                }
+            }
+            .dateinput {
+                width: 2.5rem;
+                margin: .2rem;
+                -webkit-appearance: none;
+                appearance: none;
+                border: .02rem solid #bbb;
+                height: .3rem;
+                padding: .05rem;
+                &::-webkit-input-placeholder {
+                    font-size: .66rem;
+                }
+            }
+        }
+    }
+    .footer {
+        .btn {
+            background-image: linear-gradient(-90deg, #0387FF 0%, #02AAFF 100%);
+            border-radius: .04rem;
+            width: 3.51rem;
+            height: .44rem;
+            margin: .12rem auto;
+            text-align: center;
+            line-height: .44rem;
+            color: white;
+            font-size: .18rem;
+
+        }
+    }
+
+
+
+}
+
