@@ -89,9 +89,9 @@ module.exports = {
     // new BundleAnalyzerPlugin() // 打包分析插件，打包后会自动弹出tree图：127.0.0.1:8888
     ],
     optimization: {
-        minimizer: [
-            new OptimizeCSSAssetsPlugin({})
-        ],
+        // minimizer: [
+        //     new OptimizeCSSAssetsPlugin({})
+        // ],
         runtimeChunk: true,
         splitChunks: {
             chunks: 'all', // Taken from https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
