@@ -5,7 +5,7 @@ import 'es6-promise/auto'
 import Vue from 'vue'
 import store from './store'
 import router from './router'
-import {sync} from 'vuex-router-sync'
+import { sync } from 'vuex-router-sync'
 import vueTap from 'v-tap'
 import '~/assets/style.css'
 
@@ -16,6 +16,11 @@ Vue.mixin({
     methods: {
         dispatch: store.dispatch,
         commit: store.commit
+    },
+    computed: {
+        state () {
+            return (this.ns && store.state[this.ns]) || {}
+        }
     }
 })
 const app = new Vue({

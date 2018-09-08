@@ -95,33 +95,34 @@
 <script>
     // import {platform} from '~/common/util'
     // import HandWrite from '~components/handwrite'
-  import { ns } from '../../store'
+    import { ns } from '../../store'
 
-  export default {
-    data () {
-      return {
-        // platform
-      }
-    },
-    computed: {
-      test () {
-        return this.$store.state[ns].test
-      }
-    },
-    methods: {
-      back () {
-        history.back()
-      },
-      viewCommons () {
-        this.$router.push({ name: 'cartoon/comment', params: { art_id: this.$route.params.art_id, comm_id: 123 } })
-      }
-    },
-    components: {},
-    mounted () {
-      console.log(module)
-      // console.log(this.$route)
+    export default {
+        data () {
+            return {
+                // platform
+                ns
+            }
+        },
+        computed: {
+            test () {
+                return this.state.test
+            }
+        },
+        methods: {
+            back () {
+                history.back()
+            },
+            viewCommons () {
+                this.$router.push({ name: 'cartoon/comment', params: { art_id: this.$route.params.art_id, comm_id: 123 } })
+            }
+        },
+        components: {},
+        mounted () {
+            console.log(module)
+            // console.log(this.$route)
+        }
+
     }
-
-  }
 </script>
 <style scoped src="./style.css"></style>
