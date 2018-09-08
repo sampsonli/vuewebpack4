@@ -13,7 +13,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), // 将文件打包到此目录下
         publicPath: '', // 在生成的html中，文件的引入路径会相对于此地址，生成的css中，以及各类图片的URL都会相对于此地址
         filename: '[name].[contenthash:6].js',
-        chunkFilename: '[name].[contenthash:6].chunk.js'
+        chunkFilename: '[id].[contenthash:6].chunk.js'
     },
     context: __dirname,
     module: {
@@ -75,7 +75,7 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash:6].css',
-            chunkFilename: '[name].[contenthash:6].chunk.css'
+            chunkFilename: '[id].[contenthash:6].chunk.css'
         }),
 
         new HtmlWebpackPlugin({

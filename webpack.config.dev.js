@@ -14,7 +14,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), // 将文件打包到此目录下
         publicPath: '', // 在生成的html中，文件的引入路径会相对于此地址，生成的css中，以及各类图片的URL都会相对于此地址
         filename: '[name].js',
-        chunkFilename: '[name].chunk.js'
+        chunkFilename: '[id].chunk.js'
     },
     devtool: 'inline-source-map', // 报错的时候在控制台输出哪一行报错
     context: __dirname,
