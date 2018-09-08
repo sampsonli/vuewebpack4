@@ -94,7 +94,7 @@ module.exports = {
         ],
         runtimeChunk: true,
         splitChunks: {
-            // chunks: 'all', // Taken from https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
+            chunks: 'all', // Taken from https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
             minSize: 0,
             maxAsyncRequests: Infinity,
             maxInitialRequests: Infinity,
