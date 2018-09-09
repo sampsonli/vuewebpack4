@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 module.exports = {
     mode: 'production',
     entry: {
