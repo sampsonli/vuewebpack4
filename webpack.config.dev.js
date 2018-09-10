@@ -36,7 +36,7 @@ module.exports = {
                 // .less 解析
                 test: /\.(less|css)$/,
                 use: [
-                    'style-loader',
+                    'vue-style-loader',
                     'css-loader',
                     'postcss-loader',
                     'less-loader'
