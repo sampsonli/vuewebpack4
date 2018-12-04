@@ -81,13 +81,13 @@
                 </ul>
             </div>
         </div>
-        <!--<hand-write></hand-write>-->
+        <hand-write/>
 
     </div>
 </template>
 <script>
     // import {platform} from '~/common/util'
-    // import HandWrite from '~components/handwrite'
+    import HandWrite from '../../components/handwrite'
 
     export default {
         data () {
@@ -100,7 +100,9 @@
                 this.$router.push({ name: 'cartoon/detail', params: { art_id } })
             }
         },
-        components: {},
+        components: {
+            HandWrite
+        },
         mounted () {
 
         }
