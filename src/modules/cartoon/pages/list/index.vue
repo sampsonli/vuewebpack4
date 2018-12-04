@@ -81,7 +81,7 @@
                 </ul>
             </div>
         </div>
-        <hand-write/>
+        <!--<hand-write/>-->
 
     </div>
 </template>
