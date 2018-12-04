@@ -13,7 +13,8 @@
             <li
                 class="option"
                 @click="opa&&opa.rewrite()"
-                v-for="item in options">{{ item }}</li>
+                v-for="item in options"
+                :key="item">{{ item }}</li>
         </ul>
 
     </div>

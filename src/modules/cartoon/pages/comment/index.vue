@@ -2,7 +2,9 @@
     <div class="l-full l-flex-column container">
         <div class="header">
             <div class="h-ct">
-                <i class="h-back" v-tap="{methods: back}"></i>
+                <i
+                    class="h-back"
+                    v-tap="{methods: back}"/>
                 <span class="h-plxq">评论详情</span>
             </div>
         </div>
@@ -12,7 +14,9 @@
             <div class="l-full l-scroll-y">
 
                 <div class="comm">
-                    <div class="comm-tit"><img class="avator" src="../../assets/logo.png"/>可爱的小蜘蛛</div>
+                    <div class="comm-tit"><img
+                        class="avator"
+                        src="../../assets/logo.png">可爱的小蜘蛛</div>
                     <div class="comm-ct">我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是。</div>
                     <ul class="reply-list">
                         <li class="reply-item">
@@ -23,9 +27,8 @@
                         </li>
                     </ul>
                     <div class="view-all">查看全部6条回复 ></div>
-                    <div class="comm-opt"><i class="ping"></i><span class="star"><i class="star-logo"></i>111</span></div>
+                    <div class="comm-opt"><i class="ping"/><span class="star"><i class="star-logo"/>111</span></div>
                 </div>
-
 
             </div>
 
@@ -48,8 +51,8 @@
             }
         },
         methods: {
-            back() {
-                history.back();
+            back () {
+                history.back()
             }
         },
         components: {},
