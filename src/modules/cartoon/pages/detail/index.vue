@@ -5,7 +5,7 @@
                 <i
                     class="h-back"
                     v-tap="{methods: back}"/>
-                <span class="h-title">详情{{ test }}</span>
+                <span class="h-title">详情</span>
             </div>
         </div>
 
@@ -98,6 +98,7 @@
     import { ns } from '../../store'
 
     export default {
+        name: 'Detail',
         data () {
             return {
                 // platform
@@ -105,9 +106,6 @@
             }
         },
         computed: {
-            test () {
-                return this.state.test
-            }
         },
         methods: {
             back () {

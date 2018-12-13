@@ -39,7 +39,10 @@ sync(store, router)
 Vue.mixin({
     methods: {
         dispatch: store.dispatch,
-        commit: store.commit
+        commit: store.commit,
+        map (key, ns = this.ns) {
+            return ns && store.getters[[ns, key].join('/')]
+        }
     },
     computed: {
         state () {

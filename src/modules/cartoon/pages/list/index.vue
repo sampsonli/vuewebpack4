@@ -4,7 +4,7 @@
         <div class="header">
             <div class="h-ct">
                 <i class="h-back"/>
-                <span class="h-title">漫话历史</span>
+                <span class="h-title">漫话历史{{ddd}}</span>
             </div>
         </div>
         <div class="l-flex-1 l-relative">
@@ -87,12 +87,15 @@
 </template>
 <script>
     // import {platform} from '~/common/util'
-    import HandWrite from '../../components/handwrite'
+    // import HandWrite from '../../components/handwrite'
+    import { ns } from '../../store'
 
     export default {
+        name: 'List',
         data () {
             return {
                 // platform
+                ns
             }
         },
         methods: {
@@ -101,7 +104,12 @@
             }
         },
         components: {
-            HandWrite
+            // HandWrite
+        },
+        computed: {
+            ddd () {
+                return this.map('ddd')
+            }
         },
         mounted () {
 

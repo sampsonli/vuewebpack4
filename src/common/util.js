@@ -25,6 +25,16 @@ export function mapMutations (muts, ns) {
     return { mutations, mTypes }
 }
 
+export function mapGetters (getter, ns) {
+    const gTypes = {}
+    const getters = {}
+    Object.keys(getter).forEach((key) => {
+        gTypes[key] = [ns, key].join('/')
+        getters[gTypes[key]] = getter[key]
+    })
+    return { getters, gTypes }
+}
+
 export function wait (time) {
     return new Promise((resolve) => {
         setTimeout(() => resolve(), time)
