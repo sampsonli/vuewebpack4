@@ -44,6 +44,9 @@
     left: .21rem;
 
 }
+.content {
+    position: relative;
+}
 
 .period {
     margin-top: .36rem;
@@ -52,7 +55,7 @@
 }
 
 .art {
-    margin-top: .24rem;
+    /*margin-top: .24rem;*/
     /*border: .01rem solid red;*/
     /*box-sizing: border-box;*/
 }
@@ -156,7 +159,8 @@
 
 .item {
     /*height: .8rem;*/
-    /*border: .01rem solid green;*/
+    padding-top: .24rem;
+    /*border-top: .01rem solid green;*/
 }
 
 .sticky-ph {

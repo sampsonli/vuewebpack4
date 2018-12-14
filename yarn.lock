@@ -4947,6 +4947,10 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
+scroll-accelerate@^1.0.1:
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/scroll-accelerate/download/scroll-accelerate-1.0.1.tgz#3bdf040cd37fb66664164ddc200c5236ae1de110"
+
 "semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.5.0, semver@^5.5.1:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.1.tgz#7dfdd8814bdb7cabc7be0fb1d734cfb66c940477"

@@ -4,7 +4,7 @@
 // import ajax from '~common/ajax'
 import { mapActions, mapMutations, mapGetters } from '~/common/util'
 import store from '~/store'
-export const ns = module.i.split('modules/')[1].split('/')[0]
+export const ns = 'cartoon'
 const state = {
     test: 'hello'
 }

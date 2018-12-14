@@ -64,6 +64,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "es6-promise": "^4.2.4",
+    "scroll-accelerate": "^1.0.1",
     "v-tap": "^3.0.3",
     "video.js": "^7.1.0",
     "vue": "^2.5.17",
