@@ -1,10 +1,9 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/env",
       {
-        "loose": true,
-        "module": false,
+        "useBuiltIns": "usage",
         "targets": {
           "browsers": [
             "ie >= 9",
@@ -16,14 +15,10 @@
         }
       }
     ],
-    "vue-app"
+    "@vue/babel-preset-app"
   ],
   "plugins": [
-    "transform-runtime",
-    "transform-decorators-legacy",
-    "transform-class-properties",
-    "syntax-dynamic-import",
-    "syntax-object-rest-spread",
-    "transform-object-rest-spread"
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-syntax-dynamic-import"
   ]
 }

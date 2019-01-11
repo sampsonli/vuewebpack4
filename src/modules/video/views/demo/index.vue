@@ -14,8 +14,8 @@
 </template>
 
 <script>
-    import videojs from 'video.js'
-    import 'video.js/dist/video-js.css'
+    // import videojs from 'video.js'
+    // import 'video.js/dist/video-js.css'
 
     export default {
         name: 'Demo',
@@ -24,17 +24,17 @@
         },
         mounted () {
             console.log(this.$abc)
-            const video = this.$refs.video
-            var myPlayer = videojs(video, {
-                bigPlayButton: false,
-                textTrackDisplay: false,
-                posterImage: true,
-                errorDisplay: false
-                // controlBar : false
-            }, () => {
-                // video.setAttribute('width', innerWidth)
-                myPlayer.play()
-            })
+            // const video = this.$refs.video
+            // var myPlayer = videojs(video, {
+            //     bigPlayButton: false,
+            //     textTrackDisplay: false,
+            //     posterImage: true,
+            //     errorDisplay: false
+            //     // controlBar : false
+            // }, () => {
+            //     // video.setAttribute('width', innerWidth)
+            //     myPlayer.play()
+            // })
         }
     }
 </script>

@@ -56,4 +56,4 @@ const app = new Vue({
     store,
     template: '<router-view/>'
 })
-export { app, router, store }
+
