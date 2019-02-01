@@ -4,7 +4,6 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import route from './modules/cartoon/route'
 Vue.use(VueRouter)
 
 const views = [];
@@ -14,7 +13,7 @@ const views = [];
         md.path = md.path || ('/' + key.split('/')[2])
         views.push(md)
     })
-})(require.context('./', true, /\.\/modules\/[^\/]+\/route.js$/)); // eslint-disable-line
+})(require.context('./', true, /\.\/routes\/[^\/]+\/route.js$/)); // eslint-disable-line
 
 // views.push(route)
 export default new VueRouter({
