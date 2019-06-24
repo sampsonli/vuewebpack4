@@ -7,22 +7,22 @@ export default {
     children: [
         {
             path: 'list',
-            name: 'cartoon/list',
+            name: 'demo/list',
             component: CartoonList
         },
         {
             path: 'detail/:art_id',
             component: CartoonDetail,
-            name: 'cartoon/detail'
+            name: 'demo/detail'
         },
         {
             path: 'detail/:art_id/:comm_id',
             component: CartoonComment,
-            name: 'cartoon/comment'
+            name: 'demo/comment'
         },
         {
             path: '*',
-            redirect: { name: 'cartoon/list' }
+            redirect: { name: 'demo/list' }
         }
     ]
 }

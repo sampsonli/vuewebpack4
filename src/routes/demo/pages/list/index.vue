@@ -4,7 +4,7 @@
         <div class="header">
             <div class="h-ct">
                 <i class="h-back"/>
-                <span class="h-title">漫话历史{{ ddd }}</span>
+                <span class="h-title">漫话历史{{ lichun }}</span>
             </div>
         </div>
         <div class="l-flex-1 l-relative">
@@ -51,7 +51,7 @@
 <script>
     // import {platform} from '~/common/util'
     // import HandWrite from '../../components/handwrite'
-    import { ns } from '../../store'
+    import model from '../../models/test'
     import { Scroller } from 'scroll-accelerate'
 
     export default {
@@ -59,11 +59,12 @@
         data () {
             return {
                 // platform
-                ns
+                ns: model.ns
             }
         },
         methods: {
             goDetail ({ params: { art_id } }) {
+                model.getAa('1123455')
                 // this.$router.push({ name: 'cartoon/detail', params: { art_id } })
             }
         },
@@ -71,14 +72,17 @@
             // HandWrite
         },
         computed: {
+            lichun () {
+                return this.state.aa
+            },
+
             ddd () {
-                return this.map('ddd')
+                return this.map('me')
             }
         },
         mounted () {
             let container = this.$refs.container
             let content = this.$refs.content
-            let itemHeight = content.querySelector('li').offsetHeight
             const scrollerObj = new Scroller((left, top, zoom) => {
                 content.style.transform = 'translate3d(' + (-left) + 'px,' + (-top) + 'px,0) scale(' + zoom + ')'
             }, {

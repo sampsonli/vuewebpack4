@@ -93,16 +93,14 @@
     </div>
 </template>
 <script>
-    // import {platform} from '~/common/util'
     // import HandWrite from '~components/handwrite'
-    import { ns } from '../../store'
+    import model from '../../models/test'
 
     export default {
         name: 'Detail',
         data () {
             return {
-                // platform
-                ns
+                ns: model.ns
             }
         },
         computed: {
@@ -112,7 +110,7 @@
                 history.back()
             },
             viewCommons () {
-                this.$router.push({ name: 'cartoon/comment', params: { art_id: this.$route.params.art_id, comm_id: 123 } })
+                this.$router.push({ name: 'demo/comment', params: { art_id: this.$route.params.art_id, comm_id: 123 } })
             }
         },
         components: {},

@@ -29,24 +29,24 @@ import 'es6-promise/auto'
 import Vue from 'vue'
 import store from './store'
 import router from './router'
+import spritis from './common/spirits'
 import { sync } from 'vuex-router-sync'
 import vueTap from 'v-tap'
 import '~/assets/style.css'
 
 Vue.use(vueTap)
 sync(store, router)
+spritis(store)
 
 Vue.mixin({
     methods: {
-        dispatch: store.dispatch,
-        commit: store.commit,
         map (key, ns = this.ns) {
-            return ns && store.getters[[ns, key].join('/')]
+            return ns && this.$store.getters[[ns, key].join('/')]
         }
     },
     computed: {
         state () {
-            return (this.ns && store.state[this.ns]) || {}
+            return (this.ns && this.$store.state[this.ns]) || {}
         }
     }
 })
