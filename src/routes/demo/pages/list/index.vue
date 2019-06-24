@@ -2,20 +2,23 @@
 <template>
     <div class="l-full l-flex-column container">
         <div class="header">
-            <div class="h-ct">
-                <i class="h-back"/>
-                <span class="h-title">漫话历史{{ lichun }}</span>
+            <div class="h-ct" v-tap="{methods: changeTitle}">
+                <i class="h-back" />
+                <span class="h-title">
+                    漫话历史{{ hi }}-{{ me }}
+                </span>
             </div>
         </div>
         <div class="l-flex-1 l-relative">
-
             <div
                 class="l-full"
-                ref="container">
+                ref="container"
+            >
                 <ul
                     class="content"
-                    ref="content">
-                    <div class="time-line"/>
+                    ref="content"
+                >
+                    <div class="time-line" />
                     <!--<li class="item period">
                         <div><i class="logo_01"/><span class="l-title">春秋战国</span><span class="s-title">公元前770年—公元前221年</span>
                         </div>
@@ -24,28 +27,32 @@
                         :key="item"
                         class="item art"
                         v-for="item in 30"
-                        v-tap="{methods: goDetail, params: {art_id: item}}">
-                        <div class="l-flex-row"><i class="logo_02"/><img
-                            class="logo"
-                            src="../../assets/logo.png">
+                        v-tap="{methods: goDetail, params: {art_id: item}}"
+                    >
+                        <div class="l-flex-row">
+                            <i class="logo_02" /><img
+                                class="logo"
+                                src="../../assets/logo.png"
+                            >
                             <div class="l-flex-1 l-relative art-info">
                                 <div class="l-full">
                                     <div class="art-m">
                                         这是一段文字， 测试用的的考虑过克拉克邓肯如果盛开的玫瑰
                                     </div>
-                                    <div class="art-s">一句话简介一句话简介一句话简介</div>
-                                    <div class="art-i">111739</div>
+                                    <div class="art-s">
+                                        一句话简介一句话简介一句话简介
+                                    </div>
+                                    <div class="art-i">
+                                        111739
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </li>
-
                 </ul>
             </div>
         </div>
         <!--<hand-write/>-->
-
     </div>
 </template>
 <script>
@@ -64,19 +71,21 @@
         },
         methods: {
             goDetail ({ params: { art_id } }) {
-                model.getAa('1123455')
-                // this.$router.push({ name: 'cartoon/detail', params: { art_id } })
+                this.$router.push({ name: 'demo/detail', params: { art_id } })
+            },
+            changeTitle () {
+                model.getAa(Math.floor(Math.random() * 100))
             }
         },
         components: {
             // HandWrite
         },
         computed: {
-            lichun () {
+            hi () {
                 return this.state.aa
             },
 
-            ddd () {
+            me () {
                 return this.map('me')
             }
         },

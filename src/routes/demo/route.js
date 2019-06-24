@@ -1,23 +1,23 @@
-const Cartoon = () => import('./index.vue' /* webpackChunkName: "cartoon" */)
-const CartoonList = () => import('./pages/list/index.vue' /* webpackChunkName: "cartoon_list" */)
-const CartoonDetail = () => import('./pages/detail/index.vue' /* webpackChunkName: "cartoon_detail" */)
-const CartoonComment = () => import('./pages/comment/index.vue' /* webpackChunkName: "cartoon_detail_comment" */)
+const Demo = () => import('./index.vue' /* webpackChunkName: "demo" */)
+const DemoList = () => import('./pages/list/index.vue' /* webpackChunkName: "demo_list" */)
+const DemoDetail = () => import('./pages/detail/index.vue' /* webpackChunkName: "demo_detail" */)
+const DemoComment = () => import('./pages/comment/index.vue' /* webpackChunkName: "demo_detail_comment" */)
 export default {
-    component: Cartoon,
+    component: Demo,
     children: [
         {
             path: 'list',
             name: 'demo/list',
-            component: CartoonList
+            component: DemoList
         },
         {
             path: 'detail/:art_id',
-            component: CartoonDetail,
+            component: DemoDetail,
             name: 'demo/detail'
         },
         {
             path: 'detail/:art_id/:comm_id',
-            component: CartoonComment,
+            component: DemoComment,
             name: 'demo/comment'
         },
         {

@@ -11,12 +11,12 @@ export default connect({
     mutations: {
         setAa (state, payload) {
             state.aa = payload
-        },
+        }
     },
     getters: {
-      me: () => {
-          return 'kdkdkdk'
-      }
+        me: () => {
+            return '我是春哥'
+        }
     },
     actions: {
         getAa (val) {

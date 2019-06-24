@@ -41,12 +41,12 @@ spritis(store)
 Vue.mixin({
     methods: {
         map (key, ns = this.ns) {
-            return ns && this.$store.getters[[ns, key].join('/')]
+            return (ns && this.$store.getters[[ns, key].join('/')]) || this.$store.getters[key]
         }
     },
     computed: {
         state () {
-            return (this.ns && this.$store.state[this.ns]) || {}
+            return (this.ns && this.$store.state[this.ns]) || this.$store.state
         }
     }
 })

@@ -4,7 +4,7 @@
 <script>
 // import './store'
     export default {
-        name: 'Cartoon',
+        name: 'Demo',
         data () {
             return {
                 // platform
