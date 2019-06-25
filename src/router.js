@@ -18,5 +18,5 @@ const views = [];
 // views.push(route)
 export default new VueRouter({
     mode: 'hash',
-    routes: [...views, { path: '*', redirect: { path: 'cartoon/' } }]
+    routes: [...views, { path: '*', redirect: { path: 'demo/' } }]
 })

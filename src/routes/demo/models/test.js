@@ -3,8 +3,9 @@
  */
 // import ajax from '~common/ajax'
 import { connect } from '~/common/spirits'
+export const ns = 'test'
 export default connect({
-    ns: 'test',
+    ns,
     state: {
         aa: '1242'
     },

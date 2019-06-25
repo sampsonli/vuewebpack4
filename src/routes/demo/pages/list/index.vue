@@ -2,7 +2,10 @@
 <template>
     <div class="l-full l-flex-column container">
         <div class="header">
-            <div class="h-ct" v-tap="{methods: changeTitle}">
+            <div
+                class="h-ct"
+                v-tap="{methods: changeTitle}"
+            >
                 <i class="h-back" />
                 <span class="h-title">
                     漫话历史{{ hi }}-{{ me }}
@@ -19,15 +22,11 @@
                     ref="content"
                 >
                     <div class="time-line" />
-                    <!--<li class="item period">
-                        <div><i class="logo_01"/><span class="l-title">春秋战国</span><span class="s-title">公元前770年—公元前221年</span>
-                        </div>
-                    </li>-->
                     <li
                         :key="item"
                         class="item art"
                         v-for="item in 30"
-                        v-tap="{methods: goDetail, params: {art_id: item}}"
+                        v-tap="{methods: goDetail, art_id: item}"
                     >
                         <div class="l-flex-row">
                             <i class="logo_02" /><img
@@ -52,12 +51,9 @@
                 </ul>
             </div>
         </div>
-        <!--<hand-write/>-->
     </div>
 </template>
 <script>
-    // import {platform} from '~/common/util'
-    // import HandWrite from '../../components/handwrite'
     import model from '../../models/test'
     import { Scroller } from 'scroll-accelerate'
 
@@ -70,7 +66,7 @@
             }
         },
         methods: {
-            goDetail ({ params: { art_id } }) {
+            goDetail ({ art_id }) {
                 this.$router.push({ name: 'demo/detail', params: { art_id } })
             },
             changeTitle () {
