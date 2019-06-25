@@ -45,9 +45,13 @@ module.exports = {
             {
                 // 文件解析
                 test: /\.(eot|woff|svg|ttf|woff2|appcache|mp3|mp4|pdf)(\?|$)/,
-                // include: path.resolve(__dirname, 'src'),
                 use: [
-                    'file-loader?name=assets/[name].[ext]'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'assets/[name].[hash:6].[ext]'
+                        }
+                    }
                 ]
             },
             {
@@ -55,7 +59,13 @@ module.exports = {
                 test: /\.(png|jpg|gif)$/,
                 include: path.resolve(__dirname, 'src'),
                 use: [
-                    'url-loader?limit=8192&name=assets/[name].[hash:6].[ext]'
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: 'assets/[name].[hash:6].[ext]'
+                        },
+                    }
                 ]
             }
 
