@@ -14,8 +14,8 @@ export default connect({
         }
     },
     getters: {
-        me: () => {
-            return '我是春哥'
+        me: ({ aa }) => {
+            return aa
         }
     },
     actions: {

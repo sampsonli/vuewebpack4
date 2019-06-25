@@ -1,9 +1,8 @@
 let _store
 export const connect = (model) => {
     if (_store) {
-        if (!model.ns || !model.mutations || !model.actions) {
-            console.error('model 不符合规范，至少需要包含ns,mutations,actions 字段')
-            return
+        if (!model.ns || !model.actions) {
+            throw new Error('model 不符合规范，至少需要包含ns(名字空间),actions(方法集合) 字段')
         }
         const oactions = { ns: model.ns }
         const iactions = { }
@@ -19,7 +18,7 @@ export const connect = (model) => {
                 return _store.dispatch(`${model.ns}/${key}`, payload)
             }
         })
-        _store.registerModule(model.ns, { namespaced: true, mutations: model.mutations, actions: iactions, state: model.state || {}, getters: model.getters || {} })
+        _store.registerModule(model.ns, { namespaced: true, mutations: model.mutations || {}, actions: iactions, state: model.state || {}, getters: model.getters || {} })
         return oactions
     } else {
         throw new Error('spirits 未初始化, 请先调用 spirits(store)')
