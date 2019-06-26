@@ -1,9 +1,8 @@
-const Demo = () => import('./index.vue' /* webpackChunkName: "demo" */)
 const DemoList = () => import('./pages/list/index.vue' /* webpackChunkName: "demo_list" */)
 const DemoDetail = () => import('./pages/detail/index.vue' /* webpackChunkName: "demo_detail" */)
 const DemoComment = () => import('./pages/comment/index.vue' /* webpackChunkName: "demo_detail_comment" */)
 export default {
-    component: Demo,
+    component: { template: '<router-view/>' },
     children: [
         {
             path: 'list',
