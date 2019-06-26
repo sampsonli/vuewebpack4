@@ -9,7 +9,6 @@ const webpackHotMiddleware = require('webpack-hot-middleware') // HMR热更新�
 const webpackConfig = require('./webpack.config.dev.js') // webpack开发环境的配置文件
 
 const forward = require('forward-request')
-const http = require('http')
 
 const app = express() // 实例化express服务
 const DIST_DIR = webpackConfig.output.path // webpack配置中设置的文件输出路径，所有文件存放在内存中
@@ -42,14 +41,6 @@ if (env === 'production') {
     // 如果是生产环境，则运行build文件夹中的代码
     app.use('/', express.static('dist'))
     app.use((req, resp, next) => {
-        if (~req.originalUrl.indexOf('/evalh5')) {
-            resp.redirect('/')
-        } else {
-            next()
-        }
-    })
-
-    app.use((req, resp, next) => {
         if (~req.host.indexOf('web.ewt360.com')) {
             forward({
                 req,
@@ -66,6 +57,10 @@ if (env === 'production') {
         }
         next()
     })
+    app.get('*', (req, res, next) => {
+        const filename = path.join(DIST_DIR, 'index.html')
+        res.sendFile(filename)
+    })
 } else {
     const compiler = webpack(webpackConfig) // 实例化webpack
     app.use(webpackDevMiddleware(compiler, {
@@ -80,9 +75,8 @@ if (env === 'production') {
     // 挂载HMR热更新中间件
     app.use(webpackHotMiddleware(compiler))
     // 所有请求都返回index.html
-    app.get('/', (req, res, next) => {
+    app.get('*', (req, res, next) => {
         const filename = path.join(DIST_DIR, 'index.html')
-
         // 由于index.html是由html-webpack-plugin生成到内存中的，所以使用下面的方式获取
         compiler.outputFileSystem.readFile(filename, (err, result) => {
             if (err) {
@@ -92,30 +86,6 @@ if (env === 'production') {
             res.send(result)
             res.end()
         })
-    })
-
-    app.use((req, resp, next) => {
-        if (req.originalUrl.indexOf('samples') > -1) {
-            req.headers.host = 'devimages.apple.com'
-            const options = {
-                host: 'devimages.apple.com',
-                port: 80,
-                path: req.originalUrl,
-                method: req.method,
-                headers: req.headers
-            }
-            delete req.headers['accept-encoding']
-            const request = http.request(options, (response) => {
-                resp.writeHead(response.statusCode, response.headers)
-                response.pipe(resp)
-            }).on('error', function (e) {
-                console.log('error: ' + e.message)
-                resp.sendStatus(500)
-            })
-            request.end()
-        } else {
-            next()
-        }
     })
 }
 

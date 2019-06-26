@@ -5,11 +5,11 @@
   "description": "A Vuejs template using Webpack 4",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf dist/* && webpack --config webpack.config.prod.js",
+    "build": "rimraf dist/* && cross-env PUB_PATH='/' webpack --config webpack.config.prod.js",
     "clean": "rimraf dist",
-    "dev": "cross-env NODE_ENV=development PORT=3000 node server.js",
+    "dev": "cross-env NODE_ENV=development PUB_PATH='/' PORT=3000 node server.js",
     "start": "cross-env NODE_ENV=production PORT=80 node server.js",
-    "prod": "npm run build && cross-env NODE_ENV=production PORT=3000 node server.js"
+    "prod": "npm run build && cross-env NODE_ENV=production  PUB_PATH='/' PORT=3000 node server.js"
   },
   "keywords": [
     "Vue",

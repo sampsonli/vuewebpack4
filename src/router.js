@@ -1,5 +1,5 @@
 /**
- * Created by lichun on 2017/5/10.
+ * Created by lichun on 2019/6/1.
  */
 
 import Vue from 'vue'
@@ -13,10 +13,14 @@ const views = [];
         md.path = md.path || ('/' + key.split('/')[2])
         views.push(md)
     })
-})(require.context('./', true, /\.\/routes\/[^\/]+\/route.js$/)); // eslint-disable-line
+})(
+    require.context('./', true, /\.\/routes\/([^/]+)\/route.js$/)
+    // require.context('./', true, /\.\/routes\/(demo)\/route.js$/)
+)
 
 // views.push(route)
 export default new VueRouter({
-    mode: 'hash',
+    mode: 'history',
+    // mode: 'hash',
     routes: [...views, { path: '*', redirect: { path: 'demo/' } }]
 })
