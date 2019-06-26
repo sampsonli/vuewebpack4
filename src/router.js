@@ -17,10 +17,7 @@ const views = [];
     require.context('./', true, /\.\/routes\/([^/]+)\/route.js$/)
     // require.context('./', true, /\.\/routes\/(demo)\/route.js$/)
 )
-
-// views.push(route)
 export default new VueRouter({
-    mode: 'history',
-    // mode: 'hash',
+    mode: process.env.PUB_PATH ? 'history' : 'hash',
     routes: [...views, { path: '*', redirect: { path: 'demo/' } }]
 })

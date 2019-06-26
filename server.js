@@ -8,7 +8,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware') // webpack服务�
 const webpackHotMiddleware = require('webpack-hot-middleware') // HMR热更新中间件
 const webpackConfig = require('./webpack.config.dev.js') // webpack开发环境的配置文件
 
-const forward = require('forward-request')
+// const forward = require('forward-request')
 
 const app = express() // 实例化express服务
 const DIST_DIR = webpackConfig.output.path // webpack配置中设置的文件输出路径，所有文件存放在内存中
@@ -40,23 +40,6 @@ app.use((req, resp, next) => {
 if (env === 'production') {
     // 如果是生产环境，则运行build文件夹中的代码
     app.use('/', express.static('dist'))
-    app.use((req, resp, next) => {
-        if (~req.host.indexOf('web.ewt360.com')) {
-            forward({
-                req,
-                resp,
-                port: 80,
-                host: 'web.ewt360.com',
-                // host: '172.16.73.166',
-                ip: 'web.ewt360.com',
-                // ip: '172.16.73.166',
-                path: req.originalUrl,
-                showLog: true
-            })
-            return
-        }
-        next()
-    })
     app.get('*', (req, res, next) => {
         const filename = path.join(DIST_DIR, 'index.html')
         res.sendFile(filename)

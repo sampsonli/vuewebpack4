@@ -82,7 +82,7 @@ module.exports = {
         new VueLoaderPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
-            'process.env.EWT_ENV': JSON.stringify(process.env.EWT_ENV || 'online')
+            'process.env.PUB_PATH': JSON.stringify(process.env.PUB_PATH || '')
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash:6].css',

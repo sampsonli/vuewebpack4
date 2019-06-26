@@ -83,7 +83,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(), // 热更新插件
         new VueLoaderPlugin(),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development')
+            'process.env.NODE_ENV': JSON.stringify('development'),
+            'process.env.PUB_PATH': JSON.stringify(process.env.PUB_PATH || '')
         }),
         new HtmlWebpackPlugin({
             // 根据模板插入css/js等生成最终HTML
