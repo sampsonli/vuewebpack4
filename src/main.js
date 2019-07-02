@@ -37,10 +37,11 @@ import '~/assets/style.css'
 Vue.use(vueTap)
 sync(store, router)
 spritis(store)
+console.log(store)
 
 Vue.mixin({
     methods: {
-        map (key, ns = this.ns) {
+        get (key, ns = this.ns) {
             return (ns && this.$store.getters[[ns, key].join('/')]) || this.$store.getters[key]
         }
     },

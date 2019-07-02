@@ -7,7 +7,7 @@ export const ns = 'test'
 export default connect({
     ns: 'test',
     state: {
-        aa: '1242'
+        aa: '12422333333332'
     },
     mutations: {
         setAa (state, payload) {

@@ -61,7 +61,6 @@
         name: 'List',
         data () {
             return {
-                // platform
                 ns: model.ns
             }
         },
@@ -82,7 +81,7 @@
             },
 
             me () {
-                return this.map('me')
+                return this.get('me', 'test')
             }
         },
         mounted () {
