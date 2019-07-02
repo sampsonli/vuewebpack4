@@ -29,15 +29,14 @@ import 'es6-promise/auto'
 import Vue from 'vue'
 import store from './store'
 import router from './router'
-import spritis from 'vue-spirits'
+import spirits from 'vue-spirits'
 import { sync } from 'vuex-router-sync'
 import vueTap from 'v-tap'
 import '~/assets/style.css'
 
 Vue.use(vueTap)
 sync(store, router)
-spritis(store)
-console.log(store)
+spirits(store)
 
 Vue.mixin({
     methods: {
