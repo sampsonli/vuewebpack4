@@ -6564,6 +6564,11 @@ vue-router@^3.0.2:
   resolved "https://registry.npm.taobao.org/vue-router/download/vue-router-3.0.6.tgz#2e4f0f9cbb0b96d0205ab2690cfe588935136ac3"
   integrity sha1-Lk8PnLsLltAgWrJpDP5YiTUTasM=
 
+vue-spirits@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/vue-spirits/download/vue-spirits-1.0.0.tgz?cache=0&sync_timestamp=1562038528413&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-spirits%2Fdownload%2Fvue-spirits-1.0.0.tgz#ef5bfc169d39fca38913ffc0faba91f16abd34b4"
+  integrity sha1-71v8Fp05/KOJE//A+rqR8Wq9NLQ=
+
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
   resolved "https://registry.npm.taobao.org/vue-style-loader/download/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"

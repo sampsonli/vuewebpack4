@@ -2,10 +2,10 @@
  * Created by sampson on 2017/5/10.
  */
 // import ajax from '~common/ajax'
-import { connect } from '~/common/spirits'
+import { connect } from 'vue-spirits'
 export const ns = 'test'
 export default connect({
-    ns,
+    ns: 'test',
     state: {
         aa: '1242'
     },
