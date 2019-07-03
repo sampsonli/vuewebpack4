@@ -90,7 +90,7 @@
     ~~~javascript
     Vue.mixin({
         methods: {
-            map (key, ns = this.ns) {
+            get (key, ns = this.ns) {
                 return (ns && this.$store.getters[[ns, key].join('/')]) || this.$store.getters[key]
             }
         },
@@ -101,9 +101,9 @@
         }
     })
     ~~~
-    添加了state属性和map方法
+    添加了state属性和get方法
     首先判断当前组件是否定义了ns属性（model里面的ns），如果定义了， state属性指向 model里面的state，可以直接使用了
-    map是对原有getters进行了封装， 降低了使用model里面的getter的复杂度
+    get是对原有getters进行了封装， 降低了使用model里面的getter的复杂度
 
 ---------------------
 总结
