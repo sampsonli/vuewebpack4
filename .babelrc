@@ -4,7 +4,7 @@
       "@babel/env",
       {
         "useBuiltIns": "usage",
-        "corejs": "^2.6.9",
+        "corejs": "^3.1.4",
         "targets": {
           "browsers": [
             "ie >= 9",
@@ -15,9 +15,16 @@
           ]
         }
       }
-    ],
-    "@vue/babel-preset-app"
+    ]
   ],
   "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-syntax-dynamic-import",
+    ["@babel/plugin-proposal-decorators", {
+      "legacy": true
+    }],
+    ["@babel/plugin-proposal-class-properties", {
+      "loose" : true
+    }]
   ]
 }
