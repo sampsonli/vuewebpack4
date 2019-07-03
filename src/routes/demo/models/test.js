@@ -5,9 +5,9 @@
 import { connect } from 'vue-spirits'
 export const ns = 'test'
 export default connect({
-    ns: 'test',
+    ns,
     state: {
-        aa: '12422333333332'
+        aa: '1242233'
     },
     mutations: {
         setAa (state, payload) {
