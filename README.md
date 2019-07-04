@@ -44,20 +44,20 @@
     
     1. 在使用spirits前， 首先要注入本地store，可以这样写
         ~~~javascript
-        import spritis from './common/spirits'
+        import spritis from 'vue-spirits'
         spritis(store)
         ~~~
     2. 定义模块
         ~~~javascript
-        import { connect } from '~/common/spirits'
+        import { connect } from 'vue-spirits'
         export default connect({
             ns: 'test',
             state: {
                 aa: '1242'
             },
             mt: {
-                setAa (state, payload) {
-                    state.aa = payload
+                setAa (payload) {
+                    this.aa = payload
                 }
             },
             getters: {
