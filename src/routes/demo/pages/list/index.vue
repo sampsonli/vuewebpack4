@@ -56,7 +56,6 @@
 <script>
     import model from '../../models/test'
     import { Scroller } from 'scroll-accelerate'
-
     export default {
         name: 'List',
         data () {
@@ -69,8 +68,8 @@
                 this.$router.push({ name: 'demo/detail', params: { art_id } })
             },
             changeTitle () {
-                model.mt.setAa('hello world')
-                // model.getAa(Math.floor(Math.random() * 100))
+                // model.mt.setAa('hello world')
+                model.act.getAa(Math.floor(Math.random() * 100))
             }
         },
         components: {
@@ -82,7 +81,7 @@
             },
 
             me () {
-                return this.get('me', 'test')
+                return this.get('me', model.ns)
             }
         },
         mounted () {

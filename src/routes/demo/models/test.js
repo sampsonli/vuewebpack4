@@ -3,26 +3,25 @@
  */
 // import ajax from '~common/ajax'
 import { connect } from 'vue-spirits'
-export const ns = 'test'
 export default connect({
-    ns,
+    ns: 'demo',
     state: {
-        aa: '1242233'
+        aa: '1242233',
+        bb: '444'
     },
-    mutations: {
-        setAa (state, payload) {
-            state.aa = payload
+    mt: {
+        setAa (payload) {
+            this.aa = payload
         }
     },
     getters: {
-        me: ({ aa }) => {
+        me ({ aa }) {
             return aa
         }
     },
-    actions: {
-        getAa (val) {
-            this.commit('setAa', val)
+    act: {
+        getAa (payload) {
+            this.commit('setAa', payload)
         }
-
     }
-}).result
+})

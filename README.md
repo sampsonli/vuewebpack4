@@ -55,7 +55,7 @@
             state: {
                 aa: '1242'
             },
-            mutations: {
+            mt: {
                 setAa (state, payload) {
                     state.aa = payload
                 }
@@ -65,7 +65,7 @@
                     return aa
                 }
             },
-            actions: {
+            act: {
                 getAa (val) {
                     this.commit('setAa', val)
                 }
@@ -81,7 +81,7 @@
             name: 'List',
             methods: {
                 changeTitle () {
-                    model.getAa(Math.floor(Math.random() * 100))
+                    model.act.getAa(Math.floor(Math.random() * 100))
                 }
             },
         }
