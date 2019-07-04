@@ -69,7 +69,8 @@
                 this.$router.push({ name: 'demo/detail', params: { art_id } })
             },
             changeTitle () {
-                model.getAa(Math.floor(Math.random() * 1000))
+                model.mt.setAa('hello world')
+                // model.getAa(Math.floor(Math.random() * 100))
             }
         },
         components: {
