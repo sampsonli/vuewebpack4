@@ -69,6 +69,8 @@
             },
             changeTitle () {
                 // model.mt.setAa('hello world')
+                console.log({ ...model.act })
+
                 model.act.getAa(Math.floor(Math.random() * 100))
             }
         },
