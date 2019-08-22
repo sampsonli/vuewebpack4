@@ -1,6 +1,6 @@
 
 import { observable, action } from 'mobx'
-let instance = null
+let instance
 class ListStore {
     @observable name = 'lichun'
 
