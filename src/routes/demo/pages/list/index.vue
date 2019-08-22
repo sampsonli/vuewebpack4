@@ -4,11 +4,11 @@
         <div class="header">
             <div
                 class="h-ct"
-                v-tap="{methods: changeTitle}"
+                v-tap="{methods: store.changeName}"
             >
                 <i class="h-back" />
                 <span class="h-title">
-                    漫话历史{{ hi }}-{{ me }}--{{store.name}}
+                    漫话历史{{ store.name }}
                 </span>
             </div>
         </div>
@@ -26,7 +26,6 @@
                         :key="item"
                         class="item art"
                         v-for="item in 30"
-                        v-tap="{methods: goDetail, art_id: item}"
                     >
                         <div class="l-flex-row">
                             <i class="logo_02" /><img
@@ -56,37 +55,12 @@
 <script>
     import Vue from 'vue'
     import { Observer } from 'mobx-vue'
-    import model from '../../models/test'
-    import store from '../../models/listStore'
+    import ListStore from '../../models/ListStore'
     import { Scroller } from 'scroll-accelerate'
-
     import Component from 'vue-class-component'
     export default
-    @Observer
-    @Component
-    class List extends Vue {
-        ns = model.ns
-        store = store
-
-        get hi () {
-            return this.state.aa
-        }
-
-        get me () {
-            return this.get('me', model.ns)
-        }
-        changeName() {
-            store.changeName();
-        }
-
-        goDetail ({ art_id }) {
-            this.$router.push({ name: 'demo/detail', params: { art_id } })
-        }
-
-        changeTitle () {
-            store.changeName();
-            model.act.getAa(Math.floor(Math.random() * 100))
-        }
+    @Observer@Component class List extends Vue {
+        store = ListStore.getInstance()
 
         mounted () {
             const container = this.$refs.container
