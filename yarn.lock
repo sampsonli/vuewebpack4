@@ -4210,6 +4210,18 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
+mobx-vue@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.npm.taobao.org/mobx-vue/download/mobx-vue-2.0.9.tgz#656c8c4810f5f31b83eab806c350babb5b862fa1"
+  integrity sha1-ZWyMSBD18xuD6rgGw1C6u1uGL6E=
+  dependencies:
+    tslib "^1.9.0"
+
+mobx@^5.13.0:
+  version "5.13.0"
+  resolved "https://registry.npm.taobao.org/mobx/download/mobx-5.13.0.tgz#0fd68f10aa5ff2d146a4ed9e145b53337cfbca59"
+  integrity sha1-D9aPEKpf8tFGpO2eFFtTM3z7ylk=
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/move-concurrently/download/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -6511,6 +6523,11 @@ vm-browserify@^1.0.1:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
   integrity sha1-vXbWojMj4sqP+hICjcBFWcdfkBk=
+
+vue-class-component@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.npm.taobao.org/vue-class-component/download/vue-class-component-7.1.0.tgz#b33efcb10e17236d684f70b1e96f1946ec793e87"
+  integrity sha1-sz78sQ4XI21oT3Cx6W8ZRux5Poc=
 
 vue-eslint-parser@^5.0.0:
   version "5.0.0"

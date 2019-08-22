@@ -60,9 +60,12 @@
   "dependencies": {
     "axios": "^0.19.0",
     "es6-promise": "^4.2.5",
+    "mobx": "^5.13.0",
+    "mobx-vue": "^2.0.9",
     "scroll-accelerate": "^1.0.1",
     "v-tap": "^3.0.3",
     "vue": "^2.5.21",
+    "vue-class-component": "^7.1.0",
     "vue-router": "^3.0.7",
     "vue-spirits": "^2.0.5",
     "vuex": "^3.0.1",

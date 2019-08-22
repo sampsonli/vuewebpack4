@@ -8,7 +8,7 @@
             >
                 <i class="h-back" />
                 <span class="h-title">
-                    漫话历史{{ hi }}-{{ me }}
+                    漫话历史{{ hi }}-{{ me }}--{{store.name}}
                 </span>
             </div>
         </div>
@@ -54,38 +54,43 @@
     </div>
 </template>
 <script>
+    import Vue from 'vue'
+    import { Observer } from 'mobx-vue'
     import model from '../../models/test'
+    import store from '../../models/listStore'
     import { Scroller } from 'scroll-accelerate'
-    export default {
-        name: 'List',
-        data () {
-            return {
-                ns: model.ns
-            }
-        },
-        methods: {
-            goDetail ({ art_id }) {
-                this.$router.push({ name: 'demo/detail', params: { art_id } })
-            },
-            changeTitle () {
-                model.act.getAa(Math.floor(Math.random() * 100))
-            }
-        },
-        components: {
-            // HandWrite
-        },
-        computed: {
-            hi () {
-                return this.state.aa
-            },
 
-            me () {
-                return this.get('me', model.ns)
-            }
-        },
+    import Component from 'vue-class-component'
+    export default
+    @Observer
+    @Component
+    class List extends Vue {
+        ns = model.ns
+        store = store
+
+        get hi () {
+            return this.state.aa
+        }
+
+        get me () {
+            return this.get('me', model.ns)
+        }
+        changeName() {
+            store.changeName();
+        }
+
+        goDetail ({ art_id }) {
+            this.$router.push({ name: 'demo/detail', params: { art_id } })
+        }
+
+        changeTitle () {
+            store.changeName();
+            model.act.getAa(Math.floor(Math.random() * 100))
+        }
+
         mounted () {
-            let container = this.$refs.container
-            let content = this.$refs.content
+            const container = this.$refs.container
+            const content = this.$refs.content
             const scrollerObj = new Scroller((left, top, zoom) => {
                 content.style.transform = 'translate3d(' + (-left) + 'px,' + (-top) + 'px,0) scale(' + zoom + ')'
             }, {
@@ -108,4 +113,5 @@
             }, false)
         }
     }
+
 </script>
