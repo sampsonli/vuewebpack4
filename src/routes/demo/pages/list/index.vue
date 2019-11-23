@@ -8,7 +8,7 @@
             >
                 <i class="h-back" />
                 <span class="h-title">
-                    漫话历史{{ hi }}-{{ me }}
+                    漫话历史-{{ md.name }}
                 </span>
             </div>
         </div>
@@ -26,7 +26,6 @@
                         :key="item"
                         class="item art"
                         v-for="item in 30"
-                        v-tap="{methods: goDetail, art_id: item}"
                     >
                         <div class="l-flex-row">
                             <i class="logo_02" /><img
@@ -54,58 +53,29 @@
     </div>
 </template>
 <script>
-    import model from '../../models/test'
-    import { Scroller } from 'scroll-accelerate'
+    import md from '../../models/testModel'
     export default {
         name: 'List',
         data () {
             return {
-                ns: model.ns
+                ns: md.ns
             }
         },
         methods: {
-            goDetail ({ art_id }) {
-                this.$router.push({ name: 'demo/detail', params: { art_id } })
-            },
             changeTitle () {
-                model.act.getAa(Math.floor(Math.random() * 100))
+                // model.act.getAa(Math.floor(Math.random() * 100))
+                md.fetchName(Math.floor(Math.random() * 100))
             }
         },
         components: {
             // HandWrite
         },
         computed: {
-            hi () {
-                return this.state.aa
-            },
-
-            me () {
-                return this.get('me', model.ns)
+            md () {
+                return this.state
             }
         },
         mounted () {
-            let container = this.$refs.container
-            let content = this.$refs.content
-            const scrollerObj = new Scroller((left, top, zoom) => {
-                content.style.transform = 'translate3d(' + (-left) + 'px,' + (-top) + 'px,0) scale(' + zoom + ')'
-            }, {
-                scrollingX: false,
-                scrollingY: true
-            })
-            scrollerObj.setDimensions(container.offsetWidth, container.offsetHeight, content.offsetWidth, content.offsetHeight)
-            container.addEventListener('touchstart', function (e) {
-                scrollerObj.doTouchStart(e.touches, e.timeStamp)
-                e.preventDefault()
-            }, false)
-            container.addEventListener('touchmove', function (e) {
-                scrollerObj.doTouchMove(e.touches, e.timeStamp, e.scale)
-            }, false)
-            container.addEventListener('touchend', function (e) {
-                scrollerObj.doTouchEnd(e.timeStamp)
-            }, false)
-            container.addEventListener('touchcancel', function (e) {
-                scrollerObj.doTouchEnd(e.timeStamp)
-            }, false)
         }
     }
 </script>
