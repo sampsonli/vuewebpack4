@@ -8,7 +8,7 @@
             >
                 <i class="h-back" />
                 <span class="h-title">
-                    漫话历史-{{ md.name }}
+                    漫话历史-{{ uname }}
                 </span>
             </div>
         </div>
@@ -53,26 +53,23 @@
     </div>
 </template>
 <script>
-    import md from '../../models/testModel'
+    import model from '../../models/testModel'
     export default {
         name: 'List',
         data () {
             return {
-                ns: md.ns
+                ns: model.ns
             }
         },
         methods: {
             changeTitle () {
-                // model.act.getAa(Math.floor(Math.random() * 100))
-                md.fetchName(Math.floor(Math.random() * 100))
+                console.log(this.state)
+                model.fetchName(Math.floor(Math.random() * 100))
             }
         },
-        components: {
-            // HandWrite
-        },
         computed: {
-            md () {
-                return this.state
+            uname () {
+                return this.$store.getters[model.ns + '/uname']
             }
         },
         mounted () {
