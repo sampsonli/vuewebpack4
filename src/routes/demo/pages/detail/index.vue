@@ -94,7 +94,7 @@
 </template>
 <script>
     // import HandWrite from '~components/handwrite'
-    import model from '../../models/test'
+    import model from '../../models/testModel'
 
     export default {
         name: 'Detail',

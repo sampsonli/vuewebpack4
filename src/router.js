@@ -21,3 +21,4 @@ export default new VueRouter({
     mode: process.env.PUB_PATH ? 'history' : 'hash',
     routes: [...views, { path: '*', redirect: { path: 'demo/' } }]
 })
+console.log('hello')

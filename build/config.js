@@ -1,0 +1,5 @@
+const path = require('path')
+module.exports.srcDir = path.resolve(__dirname, '../src')
+module.exports.distDir = path.resolve(__dirname, '../dist')
+module.exports.staticDir = path.resolve(__dirname, '../static')
+module.exports.ctxDir = path.resolve(__dirname, '../')

@@ -1,22 +1,26 @@
 var _store
 
-export function connect (ns) {
+export function deliver (ns) {
     if (_store) {
         return function (Clazz) {
-            return function () {
-                Clazz.prototype.ns = ns
-                const result = new Clazz()
+            Clazz.prototype.ns = ns
+            const mutates = Clazz.prototype.__mutates || {}
+            delete Clazz.prototype.__mutates
+            return function (...args) {
+                const result = new Clazz(...args)
                 Object.keys(result).forEach(key => {
                     if (typeof result[key] === 'function') {
                         Clazz.prototype[key] = result[key]
                         delete result[key]
                     }
                 })
-                const actions = result.__actions || {}
+                ns = result.ns || ns
+                Clazz.prototype.ns = ns
+                delete result.ns
                 const mutations = {}
-                Object.keys(actions).forEach(func => {
+                Object.keys(mutates).forEach(func => {
                     mutations[func] = function (state, payload) {
-                        actions[func].bind(state)(payload)
+                        mutates[func].bind(state)(payload)
                     }
                 })
                 const state = _store.state[ns]
@@ -31,13 +35,13 @@ export function connect (ns) {
     }
 }
 
-export function action (clazz, act) {
-    if (!clazz.__actions) {
-        clazz.__actions = {}
+export function mutate (clazz, act) {
+    if (!clazz.__mutates) {
+        clazz.__mutates = {}
     }
-    clazz.__actions[act] = clazz[act]
+    clazz.__mutates[act] = clazz[act]
     clazz[act] = function (payload) {
-        _store.commit(`${this.ns}/${act}`, payload)
+        _store.commit(`${clazz.ns}/${act}`, payload)
     }
     return clazz[act]
 }

@@ -1,24 +1,22 @@
-import { connect, action, getter } from '../deliverer'
-@connect('test')
+import { deliver, getter, mutate } from '~/common/deliverer'
+@deliver('test')
 class TestModel {
     name = 'lichun'
 
-    @action
+    @mutate
     setName (name) {
         this.name = name
     }
 
     @getter
     uname () {
-        console.log(this)
         return this.name + ' hello'
     }
 
     fetchName = (name = 111233) => {
-        console.log('before13:' + this.name)
         setTimeout(() => {
             this.setName(name)
-        }, 1000)
+        }, 16)
     }
 }
 export default new TestModel()

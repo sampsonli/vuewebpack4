@@ -6,7 +6,7 @@ const env = process.env.NODE_ENV // 模式（dev开发环境，production生产�
 const webpack = require('webpack') // webpack核心
 const webpackDevMiddleware = require('webpack-dev-middleware') // webpack服务器
 const webpackHotMiddleware = require('webpack-hot-middleware') // HMR热更新中间件
-const webpackConfig = require('./webpack.config.dev.js') // webpack开发环境的配置文件
+const webpackConfig = require('./build/webpack.config.dev.js') // webpack开发环境的配置文件
 
 // const forward = require('forward-request')
 

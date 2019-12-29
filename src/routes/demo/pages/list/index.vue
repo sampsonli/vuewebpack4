@@ -8,7 +8,7 @@
             >
                 <i class="h-back" />
                 <span class="h-title">
-                    漫话历史-{{ uname }}
+                    漫话历史2-{{ uname }}
                 </span>
             </div>
         </div>
@@ -63,7 +63,6 @@
         },
         methods: {
             changeTitle () {
-                console.log(this.state)
                 model.fetchName(Math.floor(Math.random() * 100))
             }
         },
