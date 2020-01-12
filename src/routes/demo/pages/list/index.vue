@@ -63,6 +63,7 @@
         },
         methods: {
             changeTitle () {
+                // console.log(model)
                 model.fetchName(Math.floor(Math.random() * 100))
             }
         },

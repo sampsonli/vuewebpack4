@@ -13,10 +13,8 @@ class TestModel {
         return this.name + ' hello'
     }
 
-    fetchName = (name = 111233) => {
-        setTimeout(() => {
-            this.setName(name)
-        }, 16)
+    fetchName (name = 111233) {
+        this.setName(name)
     }
 }
 export default new TestModel()

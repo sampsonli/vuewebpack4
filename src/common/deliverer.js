@@ -6,12 +6,19 @@ export function deliver (ns) {
             Clazz.prototype.ns = ns
             const mutates = Clazz.prototype.__mutates || {}
             delete Clazz.prototype.__mutates
+            const getters = Clazz.prototype.__getters || {}
+            delete Clazz.prototype.__getters
             return function (...args) {
                 const result = new Clazz(...args)
-                Object.keys(result).forEach(key => {
-                    if (typeof result[key] === 'function') {
-                        Clazz.prototype[key] = result[key]
-                        delete result[key]
+                Object.getOwnPropertyNames(Clazz.prototype).forEach(key => {
+                    if (typeof Clazz.prototype[key] === 'function' && !mutates[key] && !getters[key]) {
+                        const origin = Clazz.prototype[key]
+                        Clazz.prototype[key] = (...args) => {
+                            const state = _store.state[ns]
+                            const tmp = Object.create(Clazz.prototype)
+                            Object.assign(tmp, state)
+                            return origin.bind(tmp)(...args)
+                        }
                     }
                 })
                 ns = result.ns || ns
@@ -28,8 +35,8 @@ export function deliver (ns) {
                     Object.assign(result, state)
                     _store.unregisterModule(ns)
                 }
-                _store.registerModule(ns, { namespaced: true, mutations, state: result, getters: result.__getters || {} })
-                return result
+                _store.registerModule(ns, { namespaced: true, mutations, state: { ...result }, getters: getters })
+                return Object.create(Clazz.prototype)
             }
         }
     }

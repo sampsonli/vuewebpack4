@@ -4,7 +4,7 @@
             <div class="h-ct">
                 <i
                     class="h-back"
-                    v-tap="{methods: back}"/>
+                    v-tap="{methods: model.fetchName }"/>
                 <span class="h-title">详情</span>
             </div>
         </div>
@@ -106,6 +106,7 @@
         computed: {
         },
         methods: {
+            model,
             back () {
                 history.back()
             },
