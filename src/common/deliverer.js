@@ -60,6 +60,7 @@ export function getter (clazz, get) {
     clazz.__getters[get] = function (state, getters, rootState) {
         return clazz[get].bind(state)({ getters, rootState })
     }
+    return () => null
 }
 
 export default function (store) {
