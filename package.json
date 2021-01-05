@@ -58,7 +58,7 @@
     "webpack-hot-middleware": "^2.24.3"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "es6-promise": "^4.2.5",
     "scroll-accelerate": "^1.0.1",
     "v-tap": "^3.0.3",
